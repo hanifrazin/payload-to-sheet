@@ -1,0 +1,42 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environments (Pip, Venv, Conda)
+.env
+.venv
+.venv/
+env/
+virtualenv
+virtualenv/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Virtualenv (bawaan pip)
+bin/
+include/
+lib/
+share/
+pyvenv.cfg
+pip-selfcheck.json
+
+# IDE - VS Code
+.vscode/
+*.code-workspace
+
+# IDE - PyCharm / IntelliJ
+.idea/
+*.iws
+
+# Excel / Output Files (PENTING: Agar hasil convert tidak ikut ke push)
+result/
+*.xlsx
+*.xls
+*.csv
+
+# OS metadata
+.DS_Store
+Thumbs.db
