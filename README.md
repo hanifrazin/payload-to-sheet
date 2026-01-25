@@ -1,6 +1,6 @@
 # 📊 Payload-to-Sheet CLI
 
-Tool berbasis Python untuk mengonversi data JSON menjadi file Excel (.xlsx) secara otomatis. Tool ini dirancang untuk mempermudah QA dalam mapping key dan value yang ada di payload API ke dalam sebuah tabel yang di pecah ke dalam beberapa kolom.
+Tool berbasis Python untuk mengonversi data JSON menjadi file Excel (.xlsx) secara otomatis. Tool ini dirancang untuk mempermudah QA dalam mapping key dan value yang ada di payload API ke dalam sebuah tabel untuk kebutuhan automation test .
 
 ---
 
