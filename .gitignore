@@ -34,6 +34,8 @@ pip-selfcheck.json
 
 # Excel / Output Files (PENTING: Agar hasil convert tidak ikut ke push)
 result/
+result
+config.json
 *.xlsx
 *.xls
 *.csv

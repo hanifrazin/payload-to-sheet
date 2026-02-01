@@ -1,0 +1,11 @@
+{
+  "extract": {
+    "input": "data/mentah/laporan.xlsx",
+    "column": "Request",
+    "sheet": "Sheet1"
+  },
+  "convert": {
+    "input": "/Users/user/Desktop/payload-to-sheet/sample-data/single",
+    "output": ""
+  }
+}
