@@ -1,0 +1,15 @@
+{
+  "extract": {
+    "input": ".\\sample-data\\laporan.xlsx",
+    "column": "Request",
+    "sheet": "QRIS SNAP MPM"
+  },
+  "convert": {
+    "input": ".\\sample-data\\single",
+    "output": ""
+  },
+  "response": {
+    "input": ".\\sample-data\\RES-FSCM-INBOUND",
+    "output": ""
+  }
+}

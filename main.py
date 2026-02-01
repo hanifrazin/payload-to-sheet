@@ -7,7 +7,7 @@ from src.extract_payload import extract_payloads_from_excel
 
 def load_config():
     config_path = 'config.json'
-    example_path = 'config.json.example'
+    example_path = 'config.json.mac.example'
     
     # 1. Otomatis buat config.json dari example jika belum ada
     if not os.path.exists(config_path) and os.path.exists(example_path):
