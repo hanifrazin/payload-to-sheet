@@ -39,7 +39,11 @@ config.json
 *.xlsx
 *.xls
 *.csv
+data
+data/
 
 # OS metadata
 .DS_Store
 Thumbs.db
+config.json.mac.example
+config.json.windows.example

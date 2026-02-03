@@ -9,7 +9,7 @@
     "output": ""
   },
   "response": {
-    "input": ".\\sample-data\\RES-FSCM-INBOUND",
+    "input": ".\\data\\RES-FSCM-INBOUND",
     "output": ""
   }
 }

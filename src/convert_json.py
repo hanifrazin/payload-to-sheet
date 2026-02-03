@@ -69,45 +69,50 @@ def process_json_to_excel(folder_path, custom_output_name=None):
                     flat_data = flatten_json(item)
                     row_data = {"SOURCE": file_name}
                     
+                    # --- BAGIAN YANG DIUBAH ---
+                    # Langsung masukkan semua key tanpa cek duplikasi nilai
                     for full_key, value in flat_data.items():
-                        val_str = str(value).strip()
                         header = clean_header(full_key)
-                        
-                        is_duplicate_val = False
-                        for existing_val in row_data.values():
-                            if str(existing_val).strip() == val_str and val_str != "":
-                                is_duplicate_val = True
-                                break
-                        
-                        if not is_duplicate_val:
-                            row_data[header] = value
+                        row_data[header] = value
+                    # ---------------------------
                     
                     all_rows.append(row_data)
+                        
+                       
             except Exception as e:
                 print(f"[GAGAL] {file_name}: {e}")
 
     # Simpan ke Excel
-    df = pd.DataFrame(all_rows).fillna('')
-    writer = pd.ExcelWriter(output_filename, engine='xlsxwriter')
-    df.to_excel(writer, index=False)
-    
-    workbook = writer.book
-    worksheet = writer.sheets['Sheet1']
-    text_format = workbook.add_format({'num_format': '@', 'quote_prefix': True})
+    try:
+        df = pd.DataFrame(all_rows).fillna('')
+        writer = pd.ExcelWriter(output_filename, engine='xlsxwriter')
+        df.to_excel(writer, index=False)
+        
+        workbook = writer.book
+        worksheet = writer.sheets['Sheet1']
+        text_format = workbook.add_format({'num_format': '@', 'quote_prefix': True})
 
-    for col_num, col_name in enumerate(df.columns):
-        worksheet.set_column(col_num, col_num, 25)
-        for row_num, value in enumerate(df[col_name]):
-            worksheet.write_string(row_num + 1, col_num, str(value), text_format)
+        for col_num, col_name in enumerate(df.columns):
+            worksheet.set_column(col_num, col_num, 25)
+            for row_num, value in enumerate(df[col_name]):
+                worksheet.write_string(row_num + 1, col_num, str(value), text_format)
 
-    writer.close()
+        writer.close()
 
-    print("---------------------------------------------")
-    print("SUKSES KONVERSI!")
-    print(f"Lokasi File  : {output_filename}")
-    print(f"Total Baris  : {len(df)} baris data")
-    print(f"Total Kolom  : {len(df.columns) - 1} kolom data")
-    print("---------------------------------------------")
+        print("---------------------------------------------")
+        print("SUKSES KONVERSI!")
+        print(f"Lokasi File  : {output_filename}")
+        print(f"Total Baris  : {len(df)} baris data")
+        print(f"Total Kolom  : {len(df.columns) - 1} kolom data")
+        print("---------------------------------------------")
+    except PermissionError:
+        print("\n" + "!"*50)
+        print("[GAGAL] FILE EXCEL SEDANG TERBUKA!")
+        print(f"File: {output_filename}")
+        print("Silakan TUTUP file tersebut di Excel, lalu jalankan perintah ini lagi.")
+        print("!"*50 + "\n")
+    except Exception as e:
+        print(f"\n[ERROR] Terjadi kesalahan saat menyimpan file: {e}")
 
 
 def response_json_to_excel(folder_path, custom_output_name=None):
